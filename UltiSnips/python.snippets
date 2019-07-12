@@ -3,6 +3,10 @@ snippet code "coding:utf-8"
 # coding: utf-8
 endsnippet
 
+snippet ip "ipdb.set_trace()"
+import ipdb; ipdb.set_trace()
+endsnippet
+
 snippet main "if main"
 if __name__ == '__main__':
     ${1}
@@ -28,6 +32,10 @@ from ${1} import ${2}
 endsnippet
 
 ########### single char
+snippet e "exit"
+exit()
+endsnippet
+
 snippet t "True"
 True${1}
 endsnippet
@@ -44,24 +52,40 @@ snippet r "return"
 return ${1}
 endsnippet
 
+snippet rg "range()"
+range(${1})
+endsnippet
+
 snippet s "self."
 self.${1}
 endsnippet
 
-snippet p "print"
-print ${1}
+snippet p "print()"
+print(${1})
 endsnippet
 
-snippet pr "print "
-print "${1}"
+snippet pp "print('%s' % )"
+print('${1} %s' % ${2})
 endsnippet
 
-snippet pri "print ''"
-print '${1}'
+snippet pr "print('')"
+print('${1}')
+endsnippet
+
+snippet pri "print('''')"
+print("${1}")
+endsnippet
+
+snippet pk "print kevin mark"
+print('===========Poison Mark===========')
+endsnippet
+
+snippet pl "print line"
+print('======================================================')
 endsnippet
 
 snippet prt "print trace"
-print "TRACK ================= ${1}", ${2}
+print("TRACK ================= ${1}", ${2})
 endsnippet
 
 snippet rep "repr"

@@ -71,9 +71,9 @@ set shortmess=atI
 "set backupdir=/tmp/vimbk/
 
 " 取消备份。 视情况自己改
-set nobackup
+" set nobackup
 " 关闭交换文件
-set noswapfile
+" set noswapfile
 
 
 " TODO: remove this, use gundo
@@ -92,14 +92,14 @@ set noswapfile
 set wildignore=*.swp,*.bak,*.pyc,*.class,.svn
 
 " 突出显示当前列
-set cursorcolumn
+" set cursorcolumn
 " 突出显示当前行
-set cursorline
+" set cursorline
 
 
 " 设置 退出vim后，内容显示在终端屏幕, 可以用于查看和复制, 不需要可以去掉
 " 好处：误删什么的，如果以前屏幕打开，可以找回
-set t_ti= t_te=
+" set t_ti= t_te=
 
 
 " 鼠标暂不启用, 键盘党....
@@ -474,7 +474,7 @@ map <leader>tp :tabprev<cr>
 
 map <leader>te :tabedit<cr>
 map <leader>td :tabclose<cr>
-map <leader>tm :tabm<cr>
+map <leader>tm :tabm 0<cr>
 
 " normal模式下切换到确切的tab
 noremap <leader>1 1gt
@@ -651,8 +651,6 @@ if has("gui_running")
     set t_Co=256
 endif
 
-
-
 " theme主题
 set background=dark
 set t_Co=256
@@ -675,3 +673,14 @@ highlight clear SpellRare
 highlight SpellRare term=underline cterm=underline
 highlight clear SpellLocal
 highlight SpellLocal term=underline cterm=underline
+
+" macOS复制到粘贴板
+set clipboard=unnamed
+
+" jedi setting
+let g:jedi#popup_select_first = 0
+let g:jedi#use_tabs_not_buffers = 1
+" let g:jedi#use_splits_not_buffers = "bottom"
+
+" Finally, if you don't want completion, but all the other features, use:
+" let g:jedi#completions_enabled = 0

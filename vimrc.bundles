@@ -50,6 +50,9 @@ Plug 'Valloric/YouCompleteMe'
 Plug 'Raimondi/delimitMate'
 " 自动补全html/xml标签
 Plug 'docunext/closetag.vim', { 'for': ['html', 'xml'] }
+" Python 代码自动补全和函数跳转
+" Jedi has a focus on autocompletion and goto functionality
+Plug 'davidhalter/jedi-vim'
 
 " quick edit
 " 快速注释
