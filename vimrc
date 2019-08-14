@@ -228,8 +228,8 @@ set ttyfast
 set nrformats=
 
 " 相对行号: 行号变成相对，可以用 nj/nk 进行跳转
-set relativenumber number
-au FocusLost * :set norelativenumber number
+" set relativenumber number
+" au FocusLost * :set norelativenumber number
 au FocusGained * :set relativenumber
 " 插入模式下用绝对行号, 普通模式下用相对
 autocmd InsertEnter * :set norelativenumber number
@@ -684,3 +684,30 @@ let g:jedi#use_tabs_not_buffers = 1
 
 " Finally, if you don't want completion, but all the other features, use:
 " let g:jedi#completions_enabled = 0
+
+
+" NERDComment 设置
+
+" " Add spaces after comment delimiters by default
+" let g:NERDSpaceDelims = 1
+
+" " Use compact syntax for prettified multi-line comments
+" let g:NERDCompactSexyComs = 1
+
+" " Align line-wise comment delimiters flush left instead of following code indentation
+" let g:NERDDefaultAlign = 'left'
+
+" " Set a language to use its alternate delimiters by default
+" let g:NERDAltDelims_html = 1
+" let g:NERDAltDelims_java = 1
+
+" " Add your own custom formats or override the defaults
+let g:NERDCustomDelimiters = { 'html': { 'left': '<!--', 'right':'-->', 'leftAlt': '//' },  }
+" " Allow commenting and inverting empty lines (useful when commenting a region)
+" let g:NERDCommentEmptyLines = 1
+
+" " Enable trimming of trailing whitespace when uncommenting
+" let g:NERDTrimTrailingWhitespace = 1
+
+" " Enable NERDCommenterToggle to check all selected lines is commented or not
+" let g:NERDToggleCheckAllLines = 1
