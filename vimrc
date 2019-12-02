@@ -702,7 +702,7 @@ let g:jedi#use_tabs_not_buffers = 1
 " let g:NERDAltDelims_java = 1
 
 " " Add your own custom formats or override the defaults
-let g:NERDCustomDelimiters = { 'html': { 'left': '<!--', 'right':'-->', 'leftAlt': '//' },  }
+let g:NERDCustomDelimiters = { 'html': { 'left': '<!--', 'right':'-->', 'leftAlt': '//' },  'conf': { 'left': '#', 'leftAlt': '//' },  }
 " " Allow commenting and inverting empty lines (useful when commenting a region)
 " let g:NERDCommentEmptyLines = 1
 
@@ -711,3 +711,19 @@ let g:NERDCustomDelimiters = { 'html': { 'left': '<!--', 'right':'-->', 'leftAlt
 
 " " Enable NERDCommenterToggle to check all selected lines is commented or not
 " let g:NERDToggleCheckAllLines = 1
+
+nnoremap <C-i> o
+nnoremap <C-y> :%y<cr>
+
+" vim 使用十六进制查看和编辑二进制文件
+let g:HexMode = 0
+map <C-b> :call ToggleHexMode()<cr>
+fun! ToggleHexMode()
+    if g:HexMode == 0
+        exe "%!xxd -g 1"
+        let g:HexMode = 1
+    else
+        exe ":%!xxd -r"
+        let g:HexMode = 0
+    endif
+endfun
