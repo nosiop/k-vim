@@ -658,7 +658,6 @@ set t_Co=256
 colorscheme solarized
 " colorscheme molokai
 
-
 " 设置标记一列的背景颜色和数字一行颜色一致
 hi! link SignColumn   LineNr
 hi! link ShowMarksHLl DiffAdd
@@ -674,46 +673,18 @@ highlight SpellRare term=underline cterm=underline
 highlight clear SpellLocal
 highlight SpellLocal term=underline cterm=underline
 
+
+"####### Poison Added #######
+
 " macOS复制到粘贴板
 set clipboard=unnamed
 
-" jedi setting
-let g:jedi#popup_select_first = 0
-let g:jedi#use_tabs_not_buffers = 1
-" let g:jedi#use_splits_not_buffers = "bottom"
-
-" Finally, if you don't want completion, but all the other features, use:
-" let g:jedi#completions_enabled = 0
-
-
-" NERDComment 设置
-
-" " Add spaces after comment delimiters by default
-" let g:NERDSpaceDelims = 1
-
-" " Use compact syntax for prettified multi-line comments
-" let g:NERDCompactSexyComs = 1
-
-" " Align line-wise comment delimiters flush left instead of following code indentation
-" let g:NERDDefaultAlign = 'left'
-
-" " Set a language to use its alternate delimiters by default
-" let g:NERDAltDelims_html = 1
-" let g:NERDAltDelims_java = 1
-
-" " Add your own custom formats or override the defaults
-let g:NERDCustomDelimiters = { 'html': { 'left': '<!--', 'right':'-->', 'leftAlt': '//' },  'conf': { 'left': '#', 'leftAlt': '//' },  }
-" " Allow commenting and inverting empty lines (useful when commenting a region)
-" let g:NERDCommentEmptyLines = 1
-
-" " Enable trimming of trailing whitespace when uncommenting
-" let g:NERDTrimTrailingWhitespace = 1
-
-" " Enable NERDCommenterToggle to check all selected lines is commented or not
-" let g:NERDToggleCheckAllLines = 1
-
+" 新起一行
 nnoremap <C-i> o
+" 全文复制
 nnoremap <C-y> :%y<cr>
+" 全文删除 注意：实际是剪切
+nnoremap <C-d> :%d<cr>
 
 " vim 使用十六进制查看和编辑二进制文件
 let g:HexMode = 0
@@ -727,3 +698,6 @@ fun! ToggleHexMode()
         let g:HexMode = 0
     endif
 endfun
+
+" " 在每行末尾添加两个空格(.md file)
+" map <leader>kf :s/$/  /<cr>

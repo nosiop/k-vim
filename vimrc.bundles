@@ -27,6 +27,17 @@ endif
 
 call plug#begin('~/.vim/bundle')
 
+" [START]Poison Add
+
+" Python 代码自动补全和函数跳转
+" Jedi has a focus on autocompletion and goto functionality
+Plug 'davidhalter/jedi-vim'
+
+" Golang go to definition
+" Plug 'dgryski/vim-godef'
+
+" [END]Poison Add
+
 " 移动光标到插件名上, 使用'#'快速跳转到每个插件的配置处
 
 " syntastic
@@ -41,6 +52,7 @@ endif
 " Snippets are separated from the engine. Add this if you want them:
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
+
 " auto complete
 " 代码自动补全
 " 迄今为止用到的最好的自动VIM自动补全插件
@@ -50,14 +62,11 @@ Plug 'Valloric/YouCompleteMe'
 Plug 'Raimondi/delimitMate'
 " 自动补全html/xml标签
 Plug 'docunext/closetag.vim', { 'for': ['html', 'xml'] }
-" Python 代码自动补全和函数跳转
-" Jedi has a focus on autocompletion and goto functionality
-Plug 'davidhalter/jedi-vim'
+
 
 " quick edit
 " 快速注释
 Plug 'scrooloose/nerdcommenter'
-
 
 " 快速加入修改环绕字符
 " for repeat -> enhance surround.vim, . to repeat command
@@ -186,7 +195,6 @@ if count(g:bundle_groups, 'golang')
     Plug 'fatih/vim-go', {'for': 'go'}
 endif
 
-
 if count(g:bundle_groups, 'python')
     " for python.vim syntax highlight
     " pythonsyntax
@@ -285,8 +293,6 @@ if count(g:bundle_groups, 'beta')
 
     " Plug 'ConradIrwin/vim-bracketed-paste'
     " Plug 'roxma/vim-paste-easy'
-
-
 endif
 
 
@@ -383,8 +389,9 @@ if has_key(g:plugs, 'ale')
     \}
 
     " E501 -> 120 chars
-    let g:ale_python_flake8_args="--ignore=E114,E116,E131 --max-line-length=120"
+    " let g:ale_python_flake8_args="--ignore=E114,E116,E131 --max-line-length=120"
     " --ignore=E225,E124,E712,E116
+    let g:ale_python_flake8_options="--ignore=E121,E123,E126,E226,E24,E704,W503 --max-line-length=120"
 
     let g:ale_sign_error = '>>'
     let g:ale_sign_warning = '>'
@@ -518,6 +525,31 @@ endif
 " nerdcommenter {{{
     let g:NERDSpaceDelims=1
     let g:NERDAltDelims_python = 1
+
+    " Add your own custom formats or override the defaults
+    let g:NERDCustomDelimiters = { 'html': { 'left': '<!--', 'right':'-->', 'leftAlt': '//' }, 'javascript': {'leftAlt': '{/*', 'rightAlt': '*/}'}, 'conf': { 'left': '#', 'leftAlt': '//' }, }
+
+    " " Add spaces after comment delimiters by default
+    " let g:NERDSpaceDelims = 1
+
+    " " Use compact syntax for prettified multi-line comments
+    " let g:NERDCompactSexyComs = 1
+
+    " " Align line-wise comment delimiters flush left instead of following code indentation
+    " let g:NERDDefaultAlign = 'left'
+
+    " " Set a language to use its alternate delimiters by default
+    " let g:NERDAltDelims_html = 1
+    " let g:NERDAltDelims_java = 1
+
+    " " Allow commenting and inverting empty lines (useful when commenting a region)
+    " let g:NERDCommentEmptyLines = 1
+
+    " " Enable trimming of trailing whitespace when uncommenting
+    " let g:NERDTrimTrailingWhitespace = 1
+
+    " " Enable NERDCommenterToggle to check all selected lines is commented or not
+    " let g:NERDToggleCheckAllLines = 1
 " }}}
 
 " trailingwhitespace {{{
@@ -905,5 +937,26 @@ endif
     " vnoremap <silent> <leader>es :EsformatterVisual<CR>
 
 " }}}
+
+" ####### Poison Added #######
+
+" jedi {{{
+    let g:jedi#popup_select_first = 0
+    let g:jedi#use_tabs_not_buffers = 1
+    " let g:jedi#use_splits_not_buffers = "bottom"
+
+    " Finally, if you don't want completion, but all the other features, use:
+    " let g:jedi#completions_enabled = 0
+" }}}
+
+" godef {{{
+    " Golang跳转配置 !!!坑暂时无法使用
+    " autocmd FileType go nnoremap <buffer> gd :call GodefUnderCursor()<cr>
+    " autocmd FileType go nnoremap <buffer> <C-]> :call GodefUnderCursor()<cr>
+
+    " let g:godef_split=3 """左右打开新窗口的时候
+    " let g:godef_same_file_in_same_window=1 """函数在同一个文件中时不需要打开新窗口
+" }}}
+
 
 "------------------------------------------- end of configs --------------------------------------------
