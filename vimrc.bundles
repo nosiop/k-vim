@@ -32,6 +32,7 @@ call plug#begin('~/.vim/bundle')
 " Python 代码自动补全和函数跳转
 " Jedi has a focus on autocompletion and goto functionality
 Plug 'davidhalter/jedi-vim'
+Plug '907th/vim-auto-save'
 
 " Golang go to definition
 " Plug 'dgryski/vim-godef'
@@ -103,7 +104,7 @@ Plug 'kshenoy/vim-signature'
 Plug 'terryma/vim-expand-region'
 " 多光标选中编辑
 " multiplecursors
-Plug 'terryma/vim-multiple-cursors'
+" Plug 'terryma/vim-multiple-cursors'
 
 " quick locate file or function
 " 文件搜索
@@ -204,9 +205,9 @@ if count(g:bundle_groups, 'python')
 
     " isort  https://github.com/timothycrosley/isort#readme + https://github.com/fisadev/vim-isort#installation
     " pip install isort
-    Plug 'fisadev/vim-isort'
+    " Plug 'fisadev/vim-isort'
     " Shift-V 上下选中, ctrl + i 规范化
-    let g:vim_isort_map = '<C-i>'
+    " let g:vim_isort_map = '<C-i>'
 endif
 
 if count(g:bundle_groups, 'php')
@@ -958,5 +959,18 @@ endif
     " let g:godef_same_file_in_same_window=1 """函数在同一个文件中时不需要打开新窗口
 " }}}
 
+" vim-auto-save {{{
+    let g:auto_save = 0  " enable AutoSave on Vim startup
 
+    " 只针对markdown起效
+    " let g:auto_save = 0
+    " augroup enable_format
+    " au!
+    " au FileType python,go,markdown let b:auto_save = 1
+    " augroup END
+
+" }}}
+
+" vim-multiple-cursors {{{
+" }}}
 "------------------------------------------- end of configs --------------------------------------------

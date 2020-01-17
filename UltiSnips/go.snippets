@@ -1,30 +1,88 @@
+### main import
 snippet pa
 package main
 
 import (
-    "fmt"
+	"fmt"
 )
 
 func main(){
-    ${1}
+	${1}
 }
 endsnippet
 
 snippet fu
-func ${1}(${2}) ${3} {
-    ${4}
+func ${1:${VISUAL}}(${2}) ${3} {
+	${4:${VISUAL}}
 }
-endsnippet
-
-snippet pr
-println(${1})
 endsnippet
 
 snippet ty
 type ${1} struct {
-    ${2}
+	${2}
 }
 endsnippet
+
+### Print
+snippet p
+println(${1})
+endsnippet
+
+snippet pl
+println("============================================")
+endsnippet
+
+snippet pk
+println("===========Poison Mark===========")
+endsnippet
+
+snippet pr
+println("${1}")
+endsnippet
+
+snippet fpl
+fmt.Println("${1}")
+endsnippet
+
+snippet fpf
+fmt.Printf("${1}", ${2})
+endsnippet
+
+snippet er
+if err != nil {
+	println(err)
+}
+
+endsnippet
+snippet err
+if err != nil {
+	${1}
+}
+endsnippet
+
+### If & Loop
+
+snippet ife
+if ${1:condition} {
+	${2:${VISUAL}}
+} else {
+	${3}
+}
+endsnippet
+
+snippet fi
+for ${2:i} := 0; $2 < ${1}; $2${3:++} {
+	${4}
+}
+endsnippet
+
+snippet fg
+for ${1:_}, ${2:x} := range ${3:${VISUAL:items}} {
+	${4:x}
+}
+endsnippet
+
+### Single word
 
 snippet t
 true${1}
@@ -42,26 +100,10 @@ snippet s
 string${1}
 endsnippet
 
-snippet fpl
-fmt.Println("${1}")
-endsnippet
-
-snippet fpf
-fmt.Printf("${1}", ${2})
-endsnippet
-
-snippet err
-if err != nil {
-    ${1}
-}
-endsnippet
+### Comments
 
 snippet /*
 /*
-${1}
-
-
+${VISUAL}
 */
 endsnippet
-
-

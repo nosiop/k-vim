@@ -230,10 +230,11 @@ set nrformats=
 " 相对行号: 行号变成相对，可以用 nj/nk 进行跳转
 " set relativenumber number
 " au FocusLost * :set norelativenumber number
-au FocusGained * :set relativenumber
+" au FocusGained * :set relativenumber
+au FocusGained * :set norelativenumber
 " 插入模式下用绝对行号, 普通模式下用相对
 autocmd InsertEnter * :set norelativenumber number
-autocmd InsertLeave * :set relativenumber
+" autocmd InsertLeave * :set relativenumber
 function! NumberToggle()
   if(&relativenumber == 1)
     set norelativenumber number
@@ -548,7 +549,8 @@ nnoremap <C-y> 2<C-y>
 nnoremap <leader>q :q<CR>
 
 " Quickly save the current file
-nnoremap <leader>w :w<CR>
+" nnoremap <leader>w :w<CR>
+nnoremap <leader>k :w<CR>
 
 " 交换 ' `, 使得可以快速使用'跳到marked位置
 nnoremap ' `
@@ -561,9 +563,9 @@ nnoremap U <C-r>
 " nmap <silent> <leader>ev :e $MYVIMRC<CR>
 " nmap <silent> <leader>sv :so $MYVIMRC<CR>
 " edit vimrc/zshrc and load vimrc bindings
-nnoremap <leader>ev :vsp $MYVIMRC<CR>
-nnoremap <leader>ez :vsp ~/.zshrc<CR>
-nnoremap <leader>sv :source $MYVIMRC<CR>
+" nnoremap <leader>ev :vsp $MYVIMRC<CR>
+" nnoremap <leader>ez :vsp ~/.zshrc<CR>
+" nnoremap <leader>sv :source $MYVIMRC<CR>
 
 "==========================================
 " FileType Settings  文件类型设置
@@ -699,5 +701,13 @@ fun! ToggleHexMode()
     endif
 endfun
 
+" Golang跳转配置 de 跳转快捷键
+autocmd FileType go nnoremap <leader>d :GoDef<cr>
+autocmd FileType go nnoremap <leader>e :GoDefStack<cr>
+
 " " 在每行末尾添加两个空格(.md file)
 " map <leader>kf :s/$/  /<cr>
+
+" 使用回车键选中一个单词VISUAL模式
+nnoremap <cr> :normal! viw<cr>
+
