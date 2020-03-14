@@ -7,25 +7,46 @@ snippet ip "ipdb.set_trace()"
 import ipdb; ipdb.set_trace()
 endsnippet
 
+snippet wr "with read"
+with open("${1}", "r") as f:
+	data = f.read()
+endsnippet
+
+snippet wrl "with read lines"
+with open("${1}", "r") as f:
+	lines = f.readlines()
+endsnippet
+
+snippet ww "with write"
+with open("${1}", "w") as f:
+	f.write(${2})
+endsnippet
+
 snippet main "if main"
 if __name__ == '__main__':
-    ${1}
+	${1}
 endsnippet
 
 ########### import
-snippet im "import"
-import ${1}
+snippet imk "import time"
+import json
+import random
+import os
+import sys
 endsnippet
 
-snippet imp "import"
-import ${1:module}
-${2}
+snippet imt "import time"
+import time
+from datetime import datetime
+endsnippet
+
+snippet im "import"
+import ${1}
 endsnippet
 
 snippet fim "from . import ."
 from ${1} import ${2}
 endsnippet
-
 
 snippet from "from . import ."
 from ${1} import ${2}
@@ -130,28 +151,39 @@ endsnippet
 
 #############
 
+snippet df "def"
+def ${1}(${2}):
+	${3}
+endsnippet
+
+snippet dt "def test"
+def test(${1}):
+	${2}
+endsnippet
+
 snippet defs "defs"
 def ${1:fname}(self, ${2:**kwargs}):
-    """${3:docstring for $1}"""
-    ${3:pass}
+	"""${3:docstring for $1}"""
+	${3:pass}
 endsnippet
 
 snippet pro "property"
 def ${1}():
-    doc = "${2: The $1 property.}"
-    def fget(self):
-        ${3:return self._$1}
-    def fset(self, value):
-        ${4:self._$1 = value}
-    def fdel(self):
-        ${5:del self._$1}
-    return locals()
+	doc = "${2: The $1 property.}"
+	def fget(self):
+		${3:return self._$1}
+	def fset(self, value):
+
+		${4:self._$1 = value}
+	def fdel(self):
+		${5:del self._$1}
+	return locals()
 $1 = property(**$1())
 endsnippet
 
 snippet init "init"
 def __init__(self, ${1:args}):
-    ${2}
+	${2}
 endsnippet
 
 snippet doc "docstring"

@@ -11,6 +11,10 @@ func main(){
 }
 endsnippet
 
+snippet :
+${1:${VISUAL}} := ${2}
+endsnippet
+
 snippet fu
 func ${1:${VISUAL}}(${2}) ${3} {
 	${4:${VISUAL}}
@@ -25,7 +29,7 @@ endsnippet
 
 ### Print
 snippet p
-println(${1})
+fmt.Println(${1})
 endsnippet
 
 snippet pl
@@ -57,6 +61,13 @@ endsnippet
 snippet err
 if err != nil {
 	${1}
+}
+endsnippet
+
+# if inline error
+snippet ifer "If with inline error"
+if err := ${1:condition}; err != nil {
+	${0:${VISUAL}}
 }
 endsnippet
 
