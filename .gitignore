@@ -2,6 +2,10 @@ bundle
 *.pyc
 *.bak
 *.bk
+*.swp
+
+view
+
 configs
 myconfig.sh
 init.vim

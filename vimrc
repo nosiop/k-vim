@@ -197,6 +197,8 @@ fun! ToggleFold()
         let g:FoldMethod = 0
     endif
 endfun
+" 用空格键来开关折叠
+nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
 
 " 缩进配置
 " Smart indent
@@ -427,7 +429,7 @@ cnoremap <C-e> <End>
 
 " 搜索相关
 " Map <Space> to / (search) and Ctrl-<Space> to ? (backwards search)
-map <space> /
+" map <space> /
 " 进入搜索Use sane regexes"
 nnoremap / /\v
 vnoremap / /\v
