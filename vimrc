@@ -386,6 +386,10 @@ endfunction
 inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
 
 
+" F8 对python进行pep8格式化
+" nnoremap <F8> :Autopep8<CR>
+" 只针对py文件
+autocmd FileType python noremap <buffer> <F8> :call Autopep8()<CR>
 
 " 分屏窗口移动, Smart way to move between windows
 map <C-j> <C-W>j
