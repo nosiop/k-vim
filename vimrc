@@ -198,7 +198,9 @@ fun! ToggleFold()
     endif
 endfun
 " 用空格键来开关折叠
-nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
+nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zO')<CR>
+autocmd BufRead *.k,*.py :call ToggleFold()
+
 
 " 缩进配置
 " Smart indent
@@ -717,3 +719,9 @@ autocmd FileType go nnoremap <leader>e :GoDefStack<cr>
 " 使用回车键选中一个单词VISUAL模式
 nnoremap <cr> :normal! viw<cr>
 
+nmap <Leader>jf :%s/'/"/g \| %!python3 -m json.tool<cr>
+" nmap <Leader>jf Jformat()<cr>
+" fun! Jformat()
+    " exe "%s/'/\"/g"
+    " exe "%!python -m json.tool"
+" endfun
