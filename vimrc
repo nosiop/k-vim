@@ -198,7 +198,8 @@ fun! ToggleFold()
     endif
 endfun
 " 用空格键来开关折叠
-nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zO')<CR>
+nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
+nnoremap nf @=((foldclosed(line('.')) < 0) ? 'zc' : 'zO')<CR>
 autocmd BufRead *.k,*.py :call ToggleFold()
 
 
@@ -719,9 +720,6 @@ autocmd FileType go nnoremap <leader>e :GoDefStack<cr>
 " 使用回车键选中一个单词VISUAL模式
 nnoremap <cr> :normal! viw<cr>
 
+" 对json进行格式化，先把'替换为"，再进行格式化
+" 注意 文件中只能是纯粹的json 不包含其他内容
 nmap <Leader>jf :%s/'/"/g \| %!python3 -m json.tool<cr>
-" nmap <Leader>jf Jformat()<cr>
-" fun! Jformat()
-    " exe "%s/'/\"/g"
-    " exe "%!python -m json.tool"
-" endfun
