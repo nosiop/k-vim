@@ -28,16 +28,16 @@ if __name__ == '__main__':
 endsnippet
 
 ########### logging
-snippet iml "init logging"
+snippet logg "init logging"
 import logging
 logging.basicConfig(level=logging.DEBUG)
 endsnippet
 
-snippet kde "init logging"
+snippet deb "init logging"
 logging.debug(${1})
 endsnippet
 
-snippet kin "init logging"
+snippet inf "init logging"
 logging.debug(${1})
 endsnippet
 
@@ -150,24 +150,24 @@ endsnippet
 ############# 逻辑控制
 snippet el "else"
 else:
-    ${0:# TODO}
+	${0:# TODO}
 endsnippet
 
 snippet ei "elif"
 elif ${1}:
-    ${2}
+	${2}
 endsnippet
 
 snippet while "while"
 while ${1:expression}:
-    ${0:# TODO}
+	${0:# TODO}
 endsnippet
 
 #############
 
 snippet df "def"
-def ${1}(${2}):
-	${3}
+def ${1}():
+	${2}
 endsnippet
 
 snippet dt "def test"
@@ -231,16 +231,16 @@ TODO: ${1}
 endsnippet
 
 snippet dk "api doc"
-    :url: ${1}
-    :method: POST GET
-    :params:
+	:url: ${1}
+	:method: POST GET
+	:params:
 
-        None
+		None
 
-    :return:(json/jsonp)
+	:return:(json/jsonp)
 
-        code:
-        code:
-        code:
+		code:
+		code:
+		code:
 
 endsnippet
