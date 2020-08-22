@@ -533,8 +533,8 @@ endif
 " ################### 快速编码 ###################
 
 " nerdcommenter {{{
-    let g:NERDSpaceDelims=1
-    let g:NERDAltDelims_python = 1
+    let g:NERDSpaceDelims = 1
+    let g:NERDAltDelims_python = 2
 
     " Add your own custom formats or override the defaults
     let g:NERDCustomDelimiters = { 'html': { 'left': '<!--', 'right':'-->', 'leftAlt': '//' }, 'javascript': {'leftAlt': '{/*', 'rightAlt': '*/}'}, 'conf': { 'left': '#', 'leftAlt': '//' }, }

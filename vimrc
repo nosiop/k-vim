@@ -688,10 +688,15 @@ highlight SpellLocal term=underline cterm=underline
 "####### Poison Added #######
 
 " macOS复制到粘贴板
-set clipboard=unnamed
+if $SSH_TTY == ""
+    set clipboard+=unnamed
+endif
+" set clipboard+=unnamed
 
 " 新起一行
-nnoremap <C-i> o
+" nnoremap <C-i> o
+nnoremap I o
+
 " 全文复制
 nnoremap <C-y> :%y<cr>
 " 全文删除 注意：实际是剪切

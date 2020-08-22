@@ -34,12 +34,13 @@ logging.basicConfig(level=logging.DEBUG)
 endsnippet
 
 snippet deb "init logging"
-logging.debug(${1})
+logging.debug(f"[+] {${1}}")
 endsnippet
 
 snippet inf "init logging"
-logging.info(${1})
+logging.info(f"[+] {${1}}")
 endsnippet
+
 
 ########### import
 snippet imk "import time"
@@ -109,6 +110,11 @@ endsnippet
 
 snippet pri "print('''')"
 print("${1}")
+endsnippet
+
+snippet pfn "print function name"
+import sys; fname = sys._getframe().f_code.co_name
+print(fname)
 endsnippet
 
 snippet pk "print mark"
